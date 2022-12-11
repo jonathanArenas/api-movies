@@ -16,6 +16,10 @@ const movies = new Schema({
     image:{
         type: String,
         required: true,
+    },
+    released:{
+        type: Date,
+        required: true
     }
 })
 
