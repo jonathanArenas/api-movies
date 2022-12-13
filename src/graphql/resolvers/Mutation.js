@@ -18,6 +18,18 @@ const Mutation = {
         await Movie_catalog.findByIdAndRemove(id)
         return await Movie_catalog.find()
     },
+    
+    async updateLikesMovieById(_,{id}){
+        const Movie = await Movie_catalog.findById(id)
+        const likes = Movie.likes
+        Movie.likes = likes+1;
+
+        const res = await  Movie_catalog.findOneAndUpdate(Movie.title,
+            {likes: Movie.likes},{new: true},
+            )
+        return res
+    },
+
     async createUser(_,{input}){
         const hash = await bcrypt.hash(input.password, 10);
         input.password = hash
