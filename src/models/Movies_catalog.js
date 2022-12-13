@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const movies = new Schema({
+const movies = new mongoose.Schema({
     title:{
         type: String,
         required: true
