@@ -1,5 +1,7 @@
 import Movie_catalog from "../../models/Movies_catalog";
 import User from "../../models/User";
+import bcrypt from "bcryptjs"
+import createToken from "../../utils";
 const Mutation = {
     async createMovie(_, { input }) {
         const Movies = await Movie_catalog.create(input)
@@ -17,8 +19,15 @@ const Mutation = {
         return await Movie_catalog.find()
     },
     async createUser(_,{input}){
+        const hash = await bcrypt.hash(input.password, 10);
+        input.password = hash
         const user = await User.create(input)
-        return user
+        const payload = {
+            userId: user.id,
+          };
+          // este es el Token @.
+        const token = createToken(payload);
+        return token
     }
 
 }
