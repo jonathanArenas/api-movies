@@ -12,6 +12,7 @@ const movies = new mongoose.Schema({
     likes:{
         type: Number,
         required: false,
+        default: 0
     },
     image:{
         type: String,

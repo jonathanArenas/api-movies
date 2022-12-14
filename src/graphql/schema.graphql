@@ -16,7 +16,7 @@ type Movie {
     _id:ID!
     title:String!
     description:String!
-    likes:Int!
+    likes: Int!
     image:String!
     released: String!
 }
@@ -28,7 +28,6 @@ type User{
 input MovieInput {
     title:String!
     description:String!
-    likes:Int!
     image:String!
     released: String!
 }
