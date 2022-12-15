@@ -36,10 +36,14 @@ const Mutation = {
         const user = await User.create(input)
         const payload = {
             userId: user.id,
+            email: user.email
           };
           // este es el Token @.
         const token = createToken(payload);
-        return token
+        return {
+            response: token,
+            status: true
+        }
     }
 
 }

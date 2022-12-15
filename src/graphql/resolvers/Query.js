@@ -18,7 +18,10 @@ const Query = {
 
     async login(_, { email, password }) {
         if (!password || !email) {
-            return 'invalid credentials'
+            return{
+              response: 'invalid credentials',
+              status: false
+            }
           }
           try {
             // Busca el usuario unico en la BD busco correo electronico
@@ -27,7 +30,10 @@ const Query = {
             });
             // Validamos si el usuario exite
             if (!user) {
-              return  'invalid credentials'
+              return{
+                response: 'invalid credentials',
+                status: false
+              }
             }
         
             // compara el password enviado con el de la base de datos
@@ -35,15 +41,22 @@ const Query = {
         
             // Compara si es valido el password
             if (!isValid) {
-              return 'invalid credentials'
+              return{
+                response: 'invalid credentials',
+                status: false
+              }
             }
         
             const payload = {
               userId: user.id,
+              email: user.email
             };
             // este es el Token @.
             const token = createToken(payload);
-            return token
+            return {
+              response: token,
+              status: true
+            }
           }catch(error) {
             return 'Error la hacer login'
           }

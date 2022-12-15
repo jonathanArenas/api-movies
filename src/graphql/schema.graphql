@@ -2,7 +2,7 @@ type Query{
     ping: String
     getMovies:[Movie]
     getMovieById(_id:ID): Movie
-    login(email: String, password: String): String 
+    login(email: String, password: String): Token
 }
 
 type Mutation {
@@ -10,7 +10,7 @@ type Mutation {
     updateMovie(input:MovieInput, _id:ID) :Movie
     removeMovie(id:ID):[Movie]
     updateLikesMovieById(id:ID): Movie
-    createUser(input: UserInput): String
+    createUser(input: UserInput): Token
 }
 type Movie {
     _id:ID!
@@ -25,6 +25,10 @@ type User{
     password: String
 }
 
+type Token{
+    response: String,
+    status: Boolean
+}
 input MovieInput {
     title:String!
     description:String!
