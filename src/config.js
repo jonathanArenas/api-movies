@@ -10,7 +10,7 @@ const config = {
     uri: process.env.DB_URI || 'mongodb://127.0.0.1:27017/api-streaming',
   },
   jwt:{
-    secret: process.env.secret ||'secret'
+    secret: process.env.JWT_SECRET ||'secret'
   }
 
 };
