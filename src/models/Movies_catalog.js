@@ -19,7 +19,7 @@ const movies = new mongoose.Schema({
         required: true,
     },
     released:{
-        type: Date,
+        type: String,
         required: true
     }
 })

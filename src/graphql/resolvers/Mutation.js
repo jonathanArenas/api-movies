@@ -24,8 +24,8 @@ const Mutation = {
         const likes = Movie.likes
         Movie.likes = likes+1;
 
-        const res = await  Movie_catalog.findOneAndUpdate(Movie.title,
-            {likes: Movie.likes},{new: true},
+        const res = await  Movie_catalog.findByIdAndUpdate(id,
+            {likes: Movie.likes},{new: true}
             )
         return res
     },
