@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","names":["Query","Mutation"],"sources":["../../../src/graphql/resolvers/index.js"],"sourcesContent":["import Query from \"./Query\";\r\nimport Mutation from \"./Mutation\";\r\n\r\nexport default {\r\n    Query,\r\n    Mutation\r\n}"],"mappings":";;;;;;AAAA;AACA;AAAkC;AAAA,eAEnB;EACXA,KAAK,EAALA,iBAAK;EACLC,QAAQ,EAARA;AACJ,CAAC;AAAA"}

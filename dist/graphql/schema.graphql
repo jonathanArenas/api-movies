@@ -1,0 +1,42 @@
+type Query{
+    ping: String
+    getMovies:[Movie]
+    getMovieById(_id:ID): Movie
+    login(email: String, password: String): Token
+}
+
+type Mutation {
+    createMovie(input:MovieInput) : Movie
+    updateMovie(input:MovieInput, _id:ID) :Movie
+    removeMovie(id:ID):[Movie]
+    updateLikesMovieById(id:ID): Movie
+    createUser(input: UserInput): Token
+}
+type Movie {
+    _id:ID!
+    title:String!
+    description:String!
+    likes: Int!
+    image:String!
+    released: String!
+}
+type User{
+    email: String
+    password: String
+}
+
+type Token{
+    response: String,
+    status: Boolean
+}
+input MovieInput {
+    title:String!
+    description:String!
+    image:String!
+    released: String!
+}
+
+input UserInput{
+    email: String
+    password: String
+}  
